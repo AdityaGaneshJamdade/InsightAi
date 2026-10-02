@@ -20,6 +20,8 @@ interface NavbarProps {
   onOpenExport: () => void;
   isClearing: boolean;
   hasGeminiKey: boolean;
+  theme?: string;
+  onToggleTheme?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({

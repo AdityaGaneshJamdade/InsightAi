@@ -4,7 +4,6 @@ import multer from 'multer';
 import * as XLSX from 'xlsx';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { createServer as createViteServer } from 'vite';
 import { dataStore } from './src/server/dataStore.js';
 import { approvalStore } from './src/server/approvalStore.js';
 import { queryReviewStore } from './src/server/queryReviewStore.js';
@@ -496,7 +495,13 @@ ${r.suggestedActionItems.map((step) => `  1. ${step}`).join('\n')}
 
 // Mount Vite or serve static
 async function startServer() {
+  if (process.env.VERCEL) {
+    // Vercel Serverless Functions don't need app.listen() or Vite dev server
+    return;
+  }
+
   if (process.env.NODE_ENV !== 'production') {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: {
         middlewareMode: true,
@@ -512,11 +517,6 @@ async function startServer() {
     app.get('*', (req: Request, res: Response) => {
       res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
     });
-  }
-
-  if (process.env.VERCEL) {
-    // Vercel Serverless Functions don't need app.listen()
-    return;
   }
 
   const server = app.listen(port, '0.0.0.0', () => {
