@@ -51,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => setActiveTab('insights')}
           >
             <div
-              className={`w-9 h-9 rounded-xl overflow-hidden border p-0.5 flex items-center justify-center shrink-0 transition-colors ${isDark
+              className={`w-11 h-11 rounded-xl overflow-hidden border flex items-center justify-center shrink-0 transition-colors ${isDark
                 ? 'bg-slate-900 border-slate-700/80'
                 : 'bg-slate-100 border-slate-200'
                 }`}
@@ -59,21 +59,21 @@ export const Navbar: React.FC<NavbarProps> = ({
               <img
                 src="/logo.png"
                 alt="InsightAI Logo"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain scale-110"
               />
             </div>
 
             <div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5">
                 <span
-                  className={`font-bold tracking-tight text-base ${isDark ? 'text-white' : 'text-slate-900'
+                  className={`font-extrabold tracking-tight text-xl ${isDark ? 'text-white' : 'text-slate-900'
                     }`}
                 >
                   InsightAI
                 </span>
 
                 <span
-                  className={`text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full border ${isDark
+                  className={`text-xs font-bold tracking-wide uppercase px-2.5 py-1 rounded-full border ${isDark
                     ? 'bg-cyan-950/40 text-cyan-400 border-cyan-800/50'
                     : 'bg-cyan-50 text-cyan-700 border-cyan-200'
                     }`}
@@ -96,7 +96,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <button
               onClick={() => setActiveTab('data')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${activeTab === 'data'
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer ${activeTab === 'data'
                 ? isDark
                   ? 'bg-slate-800 text-cyan-300 shadow-sm border border-slate-700'
                   : 'bg-white text-indigo-600 shadow-sm'
@@ -105,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : 'text-slate-600 hover:text-slate-900'
                 }`}
             >
-              <Database className="w-3.5 h-3.5 text-cyan-500" />
+              <Database className="w-4 h-4 text-cyan-500" />
               <span>Data Portal</span>
 
               {datasetCount > 0 && (
@@ -122,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => setActiveTab('insights')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${activeTab === 'insights'
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer ${activeTab === 'insights'
                 ? isDark
                   ? 'bg-slate-800 text-cyan-300 shadow-sm border border-slate-700'
                   : 'bg-white text-indigo-600 shadow-sm'
@@ -131,13 +131,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : 'text-slate-600 hover:text-slate-900'
                 }`}
             >
-              <Cpu className="w-3.5 h-3.5 text-indigo-500" />
+              <Cpu className="w-4 h-4 text-indigo-500" />
               <span>Query Portal</span>
             </button>
 
             <button
               onClick={() => setActiveTab('approvals')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${activeTab === 'approvals'
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer ${activeTab === 'approvals'
                 ? isDark
                   ? 'bg-slate-800 text-cyan-300 shadow-sm border border-slate-700'
                   : 'bg-white text-indigo-600 shadow-sm'
@@ -146,7 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : 'text-slate-600 hover:text-slate-900'
                 }`}
             >
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
               <span>Review Queue</span>
 
               {pendingApprovalsCount > 0 && (
@@ -169,9 +169,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 onClick={onClearData}
                 disabled={isClearing}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs text-rose-400 hover:text-rose-300 hover:bg-rose-950/30 rounded-lg transition-colors cursor-pointer disabled:opacity-50"
+                className="flex items-center gap-1.5 px-3.5 py-2 text-sm text-rose-400 hover:text-rose-300 hover:bg-rose-950/30 rounded-lg transition-colors cursor-pointer disabled:opacity-50"
               >
-                <Trash2 className="w-3.5 h-3.5" />
+                <Trash2 className="w-4 h-4" />
                 <span className="hidden md:inline">
                   {isClearing ? 'Clearing...' : 'Clear'}
                 </span>
@@ -184,7 +184,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={onToggleTheme}
               title={`Current theme: ${isDark ? 'Dark' : 'Light'}. Click to switch to ${isDark ? 'Light' : 'Dark'} mode.`}
               aria-label={`Current theme is ${isDark ? 'Dark' : 'Light'}. Switch theme`}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border transition-all cursor-pointer ${isDark
+              className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-lg border transition-all cursor-pointer ${isDark
                 ? 'bg-slate-900/80 border-slate-700 text-slate-200 hover:bg-slate-800 hover:text-white'
                 : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900'
                 }`}
@@ -205,12 +205,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Export Decisions */}
             <button
               onClick={onOpenExport}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer shadow-sm ${isDark
+              className={`flex items-center gap-1.5 px-4.5 py-2 text-sm font-semibold rounded-lg transition-all cursor-pointer shadow-sm ${isDark
                 ? 'text-slate-950 bg-white hover:bg-slate-100'
                 : 'text-white bg-slate-900 hover:bg-slate-800'
                 }`}
             >
-              <FileDown className="w-3.5 h-3.5" />
+              <FileDown className="w-4 h-4" />
               <span>Export Decisions</span>
             </button>
 

@@ -450,24 +450,6 @@ function AppInner() {
               onNavigateToDataPortal={() => setActiveTab('data')}
             />
 
-            {/* Engine Status Banner */}
-            {healthInfo && (
-              <div className={`rounded-xl border px-4 py-2.5 text-xs flex items-center justify-between ${isDark ? 'border-gray-800 bg-gray-900/60 text-gray-300' : 'border-slate-200 bg-white text-slate-600 shadow-sm'
-                }`}>
-                <div className="flex items-center gap-2">
-                  <span className={`w-2 h-2 rounded-full ${healthInfo.geminiLastFailure ? 'bg-amber-400' : 'bg-emerald-400'}`} />
-                  <span>
-                    Answer engine active
-                    {healthInfo.geminiActiveModel && (
-                      <span className={`font-mono ${isDark ? 'text-gray-400' : 'text-slate-400'}`}> ({healthInfo.geminiActiveModel})</span>
-                    )}
-                  </span>
-                </div>
-                {healthInfo.geminiLastFailure && (
-                  <span className="text-amber-500 text-[11px]">Using local computation fallback</span>
-                )}
-              </div>
-            )}
 
             {!currentAnalysis && (
               <>
@@ -660,7 +642,7 @@ function AppInner() {
             <span>Enterprise Decision Engine for Multi-Source Business Data</span>
           </div>
           <div className={`flex items-center gap-4 text-[11px] ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-            <span>CSV · Excel · PDF · Gemini 3.8 Flash</span>
+            <span>CSV · Excel · PDF · AI Engine</span>
             <span>·</span>
             <span>Human-in-the-Loop Governance</span>
           </div>

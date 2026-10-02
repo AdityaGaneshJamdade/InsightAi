@@ -154,7 +154,7 @@ export async function processNaturalLanguageQuery(query: string): Promise<QueryA
       directAnswer: 'There are currently no active datasets in the system. To begin:\n\n1. Navigate to the Data Portal tab.\n2. Upload your spreadsheets (CSV, Excel) or corporate reports (PDF, TXT, MD).\n3. Return here to ask questions, compare metrics, and generate human-in-the-loop governance decisions.',
       keyMetrics: [
         { label: 'Active Datasets', value: '0', change: 'Awaiting upload', isPositive: false, subtext: 'Upload CSV, Excel, or PDF' },
-        { label: 'Decision Engine', value: 'Ready', change: 'gemini-3.8-flash', isPositive: true, subtext: 'Multi-source RAG index' },
+        { label: 'Decision Engine', value: 'Ready', change: 'Active', isPositive: true, subtext: 'Multi-source RAG index' },
         { label: 'Evidence Audit', value: 'Active', change: 'Verifiable', isPositive: true, subtext: 'Human-in-the-loop' },
       ],
       chart: undefined,
