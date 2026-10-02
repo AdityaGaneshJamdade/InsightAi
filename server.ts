@@ -514,6 +514,11 @@ async function startServer() {
     });
   }
 
+  if (process.env.VERCEL) {
+    // Vercel Serverless Functions don't need app.listen()
+    return;
+  }
+
   const server = app.listen(port, '0.0.0.0', () => {
     console.log(`InsightAI server running at http://localhost:${port}`);
   });
@@ -536,3 +541,6 @@ async function startServer() {
 }
 
 startServer();
+
+// Export the Express API for Vercel
+export default app;
