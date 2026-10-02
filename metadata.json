@@ -1,0 +1,6 @@
+{
+  "name": "InsightAI – AI Decision Engine for Business Data",
+  "description": "Multi-source business data engine ingesting CSV, Excel, and PDF files to generate explainable insights with evidence trails and human-in-the-loop approvals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

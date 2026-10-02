@@ -1,0 +1,10 @@
+[project]
+name = "insightai-backend"
+version = "1.0.0"
+description = "Workspace-scoped multi-source analytics API for InsightAI"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra -p no:cacheprovider"
